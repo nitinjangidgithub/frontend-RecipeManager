@@ -1,0 +1,19 @@
+<div class="sidenav">
+  <form>
+    <div class="form-group">
+      <label for="exampleFormControlSelect3">Recipe List</label>
+      <select class="form-control" [(ngModel)]='recipeName' name="recipeId">
+        <option *ngFor="let r of recipePopulateList">{{r.label}}</option>
+      </select>
+    </div>
+    
+    <div class="form-group">      
+      <button type="submit" class="btn btn-success" (click)=addRecipe()>Add Recipe</button>
+    </div>
+    
+    
+    <br>
+    <br>
+  </form>
+</div>
+<app-main [recipeObject]=getRecipe() [addRecipeflag]=addRecipeflag (saveObject)="updateList($event)" (returnRecipeFlag)="updateRecipeFlag($event)"></app-main>

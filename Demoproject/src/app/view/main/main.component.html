@@ -1,0 +1,55 @@
+<p-growl [(value)]="msgs"></p-growl>
+<div class="main">
+    <div *ngIf= "showHideHeader()">
+        <h1 class="heading">Welcome To Recipe Manager</h1>
+    </div>
+    <div *ngIf= "showHideRecipe()">
+        <form>
+            <div class="form-group">
+                <h5>{{recipeObject.recipeName}} - Ingredient List</h5>
+            </div>
+            <div class="form-group" *ngIf="recipeObject.ingredient1 != '' && recipeObject.ingredient1 != undefined && recipeObject.ingredient1 != null">
+                <h5>Ingredient 1: {{recipeObject.ingredient1}}</h5>
+            </div>
+            <div class="form-group" *ngIf="recipeObject.ingredient2 != '' && recipeObject.ingredient2 != undefined && recipeObject.ingredient2 != null">      
+                <h5>Ingredient 2: {{recipeObject.ingredient2}}</h5>
+            </div>
+            <div class="form-group" *ngIf="recipeObject.ingredient3 != '' && recipeObject.ingredient3 != undefined && recipeObject.ingredient3 != null">      
+                <h5>Ingredient 3: {{recipeObject.ingredient3}}</h5>
+            </div>
+            <div class="form-group" *ngIf="recipeObject.ingredient4 != '' && recipeObject.ingredient4 != undefined && recipeObject.ingredient4 != null">      
+                <h5>Ingredient 4: {{recipeObject.ingredient4}}</h5>
+            </div>
+        </form>
+    </div>
+    <div *ngIf="addRecipeflagMethod()">
+        <h2>Add Recipe</h2>
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlSelect3">Recipe Name: </label>
+                <input type="text" [(ngModel)]='newAddRecipe.recipeName' name='newAddRecipe.recipeName' />
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect3">Recipe Ingredient 1:  </label>
+                <input type="text" [(ngModel)]='newAddRecipe.ingredient1' name='newAddRecipe.ingredient1' />
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect3">Recipe Ingredient 2: </label>
+                <input type="text" [(ngModel)]='newAddRecipe.ingredient2' name='newAddRecipe.ingredient2' />
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect3">Recipe Ingredient 3: </label>
+                <input type="text" [(ngModel)]='newAddRecipe.ingredient3' name='newAddRecipe.ingredient3' />
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect3">Recipe Ingredient 4: </label>
+                <input type="text" [(ngModel)]='newAddRecipe.ingredient4' name='newAddRecipe.ingredient4' />
+            </div>
+            <div class="form-group">      
+                <button type="submit" class="btn btn-success" (click)=saveRecipe()>Save</button>
+                <button type="submit" class="btn btn-success" (click)=cancel()>Cancel</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
